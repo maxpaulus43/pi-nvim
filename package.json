@@ -1,0 +1,21 @@
+{
+  "name": "pi-nvim",
+  "version": "0.1.0",
+  "description": "Send prompts and editor context from Neovim to the active Pi conversation",
+  "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "neovim"
+  ],
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "pi": {
+    "extensions": [
+      "./pi-extension/index.ts"
+    ]
+  },
+  "dependencies": {
+    "@maxpaulus/changelogger": "^0.5.0"
+  }
+}
