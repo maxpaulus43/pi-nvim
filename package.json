@@ -1,35 +1,35 @@
 {
-  "name": "@maxpaulus/pi-nvim",
-  "version": "0.1.0",
-  "description": "Send prompts and editor context from Neovim to the active Pi conversation",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/maxpaulus43/pi-nvim"
-  },
-  "license": "MIT",
-  "type": "module",
-  "keywords": [
-    "pi-package",
-    "pi-extension",
-    "neovim"
-  ],
-  "pi": {
-    "extensions": [
-      "./pi-extension/index.ts"
+    "name": "@maxpaulus/pi-nvim",
+    "version": "0.1.1",
+    "description": "Send prompts and editor context from Neovim to the active Pi conversation",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/maxpaulus43/pi-nvim"
+    },
+    "license": "MIT",
+    "type": "module",
+    "keywords": [
+        "pi-package",
+        "pi-extension",
+        "neovim"
+    ],
+    "pi": {
+        "extensions": [
+            "./pi-extension/index.ts"
+        ]
+    },
+    "scripts": {
+        "test": "nvim --headless -u tests/minimal_init.lua -l tests/test.lua"
+    },
+    "devDependencies": {
+        "@maxpaulus/changelogger": "^0.5.0"
+    },
+    "peerDependencies": {
+        "@earendil-works/pi-coding-agent": "*"
+    },
+    "files": [
+        "lua/",
+        "plugin/",
+        "pi-extension/index.ts"
     ]
-  },
-  "scripts": {
-    "test": "nvim --headless -u tests/minimal_init.lua -l tests/test.lua"
-  },
-  "devDependencies": {
-    "@maxpaulus/changelogger": "^0.5.0"
-  },
-  "peerDependencies": {
-    "@earendil-works/pi-coding-agent": "*"
-  },
-  "files": [
-    "lua/",
-    "plugin/",
-    "pi-extension/index.ts"
-  ]
 }

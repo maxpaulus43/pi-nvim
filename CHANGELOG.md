@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.1.1 - 2026-08-19
+- Publish the package to npm via an automated workflow
 ## 0.1.0 - 2026-08-19
 - Initial release
 - Send prompts and Neovim editor context to an active Pi conversation
