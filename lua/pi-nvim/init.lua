@@ -66,6 +66,8 @@ end
 
 local function format_message(prompt, context)
     return table.concat({
+        prompt,
+        "",
         "<neovim_context>",
         "cwd: " .. context.cwd,
         "file: " .. context.file,
@@ -76,11 +78,7 @@ local function format_message(prompt, context)
         "```" .. (context.filetype ~= "unknown" and context.filetype or ""),
         table.concat(context.lines, "\n"),
         "```",
-        "</neovim_context>",
-        "",
-        "<neovim_prompt>",
-        prompt,
-        "</neovim_prompt>",
+        "</neovim_context>"
     }, "\n")
 end
 
