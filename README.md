@@ -21,15 +21,10 @@ Send a prompt and the current Neovim context to the conversation open in Pi.
 Install the Neovim plugin with your plugin manager. For `lazy.nvim`:
 
 ```lua
-{
-  "maxpaulus43/pi-nvim",
-  config = function()
-    require("pi-nvim").setup()
-  end,
-}
+"maxpaulus43/pi-nvim"
 ```
 
-The plugin also applies its defaults automatically, so the `config` block is only needed for custom options.
+The plugin applies its defaults automatically. Call `require("pi-nvim").setup()` only when you need custom options.
 
 Install the Pi package globally:
 
