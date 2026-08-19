@@ -1,4 +1,4 @@
-# pi-nvim
+# @maxpaulus/pi-nvim
 
 Send a prompt and the current Neovim context to the conversation open in Pi.
 
@@ -16,13 +16,13 @@ Send a prompt and the current Neovim context to the conversation open in Pi.
 - Pi 0.84 or newer
 - macOS or Linux (the transport uses a Unix domain socket)
 
-## Install for local testing
+## Install
 
-Install this repository as a Neovim plugin. For `lazy.nvim`:
+Install the Neovim plugin with your plugin manager. For `lazy.nvim`:
 
 ```lua
 {
-  dir = "/Users/maxpaulus/c/pi-nvim",
+  "maxpaulus43/pi-nvim",
   config = function()
     require("pi-nvim").setup()
   end,
@@ -34,16 +34,10 @@ The plugin also applies its defaults automatically, so the `config` block is onl
 Install the Pi package globally:
 
 ```sh
-pi install /Users/maxpaulus/c/pi-nvim
+pi install npm:@maxpaulus/pi-nvim
 ```
 
-Restart any running Pi instances after installation. `pi list` should show the local package.
-
-For a one-off Pi test without installing the extension:
-
-```sh
-pi -e /Users/maxpaulus/c/pi-nvim/pi-extension/index.ts
-```
+Restart any running Pi instances after installation. `pi list` should show the package.
 
 ## Configuration
 
@@ -70,6 +64,22 @@ When multiple Pi instances are available, Neovim shows an instance picker. Insta
 The extension creates its runtime directory with mode `0700` and its socket and metadata with mode `0600`. The extension accepts only a versioned JSON message containing the prompt and limits requests to 256 KiB. Like all Pi extensions, it runs with the user's permissions; review it before installation.
 
 ## Development
+
+For local testing, install the repository as both a Neovim plugin and a Pi package:
+
+```lua
+{ dir = "/path/to/pi-nvim" }
+```
+
+```sh
+pi install /path/to/pi-nvim
+```
+
+For a one-off Pi test without installing the extension:
+
+```sh
+pi -e ./pi-extension/index.ts
+```
 
 Run the Lua tests:
 
