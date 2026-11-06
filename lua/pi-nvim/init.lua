@@ -163,6 +163,12 @@ local function start_notification_server()
     vim.uv.fs_unlink(notification_socket)
 
     local server = vim.uv.new_pipe(false)
+
+    if server == nil then
+        vim.notify("pi-nvim: failed to create notification socket", vim.log.levels.ERROR)
+        return
+    end
+
     local ok, bind_error = pcall(server.bind, server, notification_socket)
     if not ok then
         server:close()
@@ -176,6 +182,11 @@ local function start_notification_server()
             return
         end
         local client = vim.uv.new_pipe(false)
+
+        if client == nil then
+            return
+        end
+
         server:accept(client)
         local input = ""
         client:read_start(function(read_err, chunk)
